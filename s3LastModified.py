@@ -21,7 +21,7 @@ for a_bucket in all_buckets:
     key_count = 0;
 
     for key in current_bucket_keys:
-        print key.name.encode('utf-8') + '' + key.last_modified
+        print key.name.encode('utf-8') + ' ' + key.last_modified
         key_count += 1
         print "Current key count in bucket " + current_bucket.name + ": " + str(key_count)
         log_writer.writerow([current_bucket.name, key.name.encode('utf-8'), key.last_modified])
