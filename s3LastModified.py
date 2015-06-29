@@ -14,11 +14,10 @@ log_writer.writerow(["Bucket Name", "Key Name", "Last Modified Date"])
 
 # get all of the buckets for this account and extract the bucket names
 all_buckets = conn.get_all_buckets()
-for a_bucket in all_buckets:
+for current_bucket in all_buckets:
     # go to each bucket and get all necessary detail
-    current_bucket = conn.get_bucket(a_bucket.name, validate=False)
     current_bucket_keys = current_bucket.list()
-    key_count = 0;
+    key_count = 0
 
     for key in current_bucket_keys:
         print key.name.encode('utf-8') + ' ' + key.last_modified
